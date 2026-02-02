@@ -1,367 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baeuan Silog House</title>
-<style>
-/* === GENERAL STYLES === */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff8ee;
-  color: #333;
-  scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;
-}
-body.dark-mode { background: #1c1c1c; color: #eee; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baeuan Silog House</title>
+  <style>
+    /* === GENERAL STYLES === */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8ee;
+      color: #333;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode { background: #1c1c1c; color: #eee; }
 
-header {
-  background: #b22222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-nav a {
-  color: white;
-  margin: 0 12px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-nav a:hover { color: #ffcc00; }
+    header {
+      background: #b22222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-#darkModeToggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: #b22222;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 20;
-}
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffcc00; }
 
-/* HERO */
-.hero {
-  background: url('https://images.unsplash.com/photo-1604908177522-42952b1a7c10?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-  color: white;
-  padding: 120px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero h2, .hero p { animation: fadeInDown 1s ease forwards; }
-.hero button {
-  padding: 15px 30px;
-  background: #ffcc00;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: transform 0.3s;
-}
-.hero button:hover { transform: scale(1.1); }
+    #darkModeToggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #b22222;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 20;
+    }
 
-/* Animations */
-@keyframes fadeInDown { 0% {opacity:0; transform: translateY(-30px);} 100% {opacity:1; transform: translateY(0);} }
-@keyframes fadeIn { 0% {opacity:0;} 100% {opacity:1;} }
+    /* HERO */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1604908177522-42952b1a7c10') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h2, .hero p { animation: fadeInDown 1s ease forwards; }
+    .hero button {
+      padding: 15px 30px;
+      background: #ffcc00;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: transform 0.3s;
+    }
+    .hero button:hover { transform: scale(1.1); }
 
-/* SECTION STYLES */
-section { padding: 60px 20px; text-align: center; }
-h2 { margin-bottom: 30px; }
+    /* Animations */
+    @keyframes fadeInDown {
+      0% { opacity:0; transform: translateY(-30px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity:0; }
+      100% { opacity:1; }
+    }
 
-/* MENU STYLES */
-.category-buttons { margin-bottom: 30px; }
-.category-buttons button {
-  margin: 5px;
-  padding: 10px 20px;
-  border: 2px solid #b22222;
-  background: white;
-  color: #b22222;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.3s;
-}
-.category-buttons button.active, .category-buttons button:hover {
-  background: #b22222;
-  color: white;
-  transform: scale(1.05);
-}
+    /* SECTION STYLES */
+    section { padding: 60px 20px; text-align: center; }
+    h2 { margin-bottom: 30px; }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap: 15px;
-}
+    /* MENU STYLES */
+    .category-buttons { margin-bottom: 30px; }
+    .category-buttons button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      border: 2px solid #b22222;
+      background: white;
+      color: #b22222;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .category-buttons button.active,
+    .category-buttons button:hover {
+      background: #b22222;
+      color: white;
+      transform: scale(1.05);
+    }
 
-.menu-item {
-  background: #ffe4b5;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: fadeIn 0.8s forwards;
-  text-align: center;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-}
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-.menu-item img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 5px;
-}
-.menu-item button {
-  background: #b22222;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.3s;
-  margin-top: 5px;
-}
-.menu-item button:hover { transform: scale(1.1); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 15px;
+    }
+    .menu-item {
+      background: #ffe4b5;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      text-align: center;
+    }
+    .menu-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .menu-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 5px;
+    }
+    .menu-item button {
+      background: #b22222;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      margin-top: 5px;
+    }
+    .menu-item button:hover { transform: scale(1.1); }
 
-/* CART SIDEBAR */
-#cart {
-  position: fixed;
-  top: 0;
-  right: -400px;
-  width: 400px;
-  height: 100%;
-  background: #fffaf3;
-  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-  padding: 20px;
-  overflow-y: auto;
-  transition: right 0.4s, background 0.3s;
-  z-index: 20;
-}
-body.dark-mode #cart { background: #2a2a2a; color: #eee; }
+    /* CART SIDEBAR */
+    #cart {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: 380px;
+      height: 100%;
+      background: #fffaf3;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+      padding: 20px;
+      overflow-y: auto;
+      transition: right 0.4s, background 0.3s;
+      z-index: 20;
+    }
+    body.dark-mode #cart { background: #2a2a2a; color: #eee; }
+    #cart h3 { margin-top: 0; }
+    .cart-item { display: flex; align-items: center; margin-bottom: 12px; }
+    .cart-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px; }
+    .cart-item-details { flex: 1; text-align: left; }
+    .cart-item button { background: red; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer; }
+    #cartToggle {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: #b22222;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px 0 0 5px;
+      z-index: 21;
+      font-weight: bold;
+    }
 
-#cart h3 { margin-top: 0; }
-.cart-item { display: flex; align-items: center; margin-bottom: 12px; }
-.cart-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px; }
-.cart-item-details { flex: 1; text-align: left; }
-.cart-item button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 2px 6px;
-  border-radius: 3px;
-  cursor: pointer;
-}
+    /* FOOTER */
+    footer { background: #b22222; color: white; padding: 15px; text-align: center; }
+    body.dark-mode footer { background: #111; }
 
-#cartToggle {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background: #b22222;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px 0 0 5px;
-  z-index: 21;
-  font-weight: bold;
-}
+    /* FORM STYLES */
+    form input { padding: 10px; margin: 5px; width: 80%; border-radius: 5px; border: 1px solid #ccc; }
+    form button { padding: 10px 20px; margin-top: 10px; background: #b22222; color:white; border:none; cursor:pointer; border-radius:5px; }
+    form button:hover { transform: scale(1.05); }
 
-/* FOOTER */
-footer { background: #b22222; color: white; padding: 15px; text-align: center; }
-body.dark-mode footer { background: #111; }
-
-/* FORM STYLES */
-form input {
-  padding: 10px;
-  margin: 5px;
-  width: 80%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-form button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background: #b22222;
-  color:white;
-  border:none;
-  cursor:pointer;
-  border-radius:5px;
-}
-form button:hover { transform: scale(1.05); }
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero { padding: 80px 10px; }
-  .menu-grid { grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
-  #cart { width: 300px; }
-}
-</style>
+    /* RESPONSIVE */
+    @media(max-width:600px){
+      .menu-grid{ grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
+      header h1 { font-size: 22px; }
+      nav a { display: block; margin: 5px 0; }
+    }
+  </style>
 </head>
 <body>
+  <div id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
 
-<div id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
+  <header>
+    <h1>Baeuan Silog House</h1>
+    <p>Masarap • Sulit • Baeuan</p>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Baeuan Silog House</h1>
-  <p>Masarap • Sulit • Baeuan</p>
-  <nav>
-    <a href="#menu">Menu</a>
-    <a href="#order">Order</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h2>Your Favorite Silog Meals</h2>
-  <p>Breakfast • Lunch • Midnight Cravings</p>
-  <button onclick="scrollToOrder()">Order Now</button>
-</div>
-
-<section id="menu">
-  <h2>Our Menu</h2>
-  <div class="category-buttons">
-    <button class="active" onclick="filterMenu('all', event)">All</button>
-    <button onclick="filterMenu('silog', event)">Silogs</button>
-    <button onclick="filterMenu('drinks', event)">Drinks</button>
-    <button onclick="filterMenu('desserts', event)">Desserts</button>
-    <button onclick="filterMenu('others', event)">Others</button>
+  <div class="hero">
+    <h2>Your Favorite Silog Meals</h2>
+    <p>Breakfast • Lunch • Midnight Cravings</p>
+    <button onclick="scrollToOrder()">Order Now</button>
   </div>
 
-  <div class="menu-grid" id="menuGrid">
-    <!-- === SILOGS (12) === -->
-    <div class="menu-item silog" data-name="Tapsilog" data-price="95" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Tapsilog">Tapsilog – ₱95<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Longsilog" data-price="85" data-img="https://images.unsplash.com/photo-1604908177522-42952b1a7c10"><img src="https://images.unsplash.com/photo-1604908177522-42952b1a7c10" alt="Longsilog">Longsilog – ₱85<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Bangsilog" data-price="100" data-img="https://images.unsplash.com/photo-1590080871296-18fd6fa7c03b"><img src="https://images.unsplash.com/photo-1590080871296-18fd6fa7c03b" alt="Bangsilog">Bangsilog – ₱100<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Chicksilog" data-price="95" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Chicksilog">Chicksilog – ₱95<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Tocilog" data-price="90" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Tocilog">Tocilog – ₱90<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Hotsilog" data-price="80" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Hotsilog">Hotsilog – ₱80<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Bacsilog" data-price="90" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Bacsilog">Bacsilog – ₱90<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Cornsilog" data-price="85" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Cornsilog">Cornsilog – ₱85<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Spamsilog" data-price="95" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Spamsilog">Spamsilog – ₱95<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Daingsilog" data-price="105" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Daingsilog">Daingsilog – ₱105<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="Sardinesilog" data-price="80" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5"><img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Sardinesilog">Sardinesilog – ₱80<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item silog" data-name="TunaSilog" data-price="110" data-img="https://images.unsplash.com/photo-1598514982420-c4ebc6a7f711"><img src="https://images.unsplash.com/photo-1598514982420-c4ebc6a7f711" alt="TunaSilog">TunaSilog – ₱110<button onclick="addToCart(this)">Add</button></div>
+  <!-- MENU -->
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="category-buttons">
+      <button class="active" onclick="filterMenu('all', event)">All</button>
+      <button onclick="filterMenu('silog', event)">Silogs</button>
+      <button onclick="filterMenu('drinks', event)">Drinks</button>
+      <button onclick="filterMenu('desserts', event)">Desserts</button>
+    </div>
 
-    <!-- === DRINKS (8) === -->
-    <div class="menu-item drinks" data-name="Coke" data-price="30" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Coke">Coke – ₱30<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Sprite" data-price="30" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Sprite">Sprite – ₱30<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Iced Tea" data-price="25" data-img="https://images.unsplash.com/photo-1598514982420-c4ebc6a7f711"><img src="https://images.unsplash.com/photo-1598514982420-c4ebc6a7f711" alt="Iced Tea">Iced Tea – ₱25<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Calamansi Juice" data-price="35" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Calamansi Juice">Calamansi Juice – ₱35<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Coffee" data-price="40" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Coffee">Coffee – ₱40<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Hot Chocolate" data-price="45" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Hot Chocolate">Hot Chocolate – ₱45<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Milk Tea" data-price="50" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="Milk Tea">Milk Tea – ₱50<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item drinks" data-name="Lemonade" data-price="35" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Lemonade">Lemonade – ₱35<button onclick="addToCart(this)">Add</button></div>
+    <div class="menu-grid" id="menuGrid">
+      <!-- SAMPLE PRODUCTS -->
+      <!-- SILOGS -->
+      <div class="menu-item silog" data-name="Tapsilog" data-price="95" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5">
+        <img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Tapsilog">
+        Tapsilog – ₱95
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+      <div class="menu-item silog" data-name="Longsilog" data-price="85" data-img="https://images.unsplash.com/photo-1604908177522-42952b1a7c10">
+        <img src="https://images.unsplash.com/photo-1604908177522-42952b1a7c10" alt="Longsilog">
+        Longsilog – ₱85
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+      <!-- Add 28+ more products similarly with online image URLs -->
+    </div>
+  </section>
 
-    <!-- === DESSERTS (8) === -->
-    <div class="menu-item desserts" data-name="Leche Flan" data-price="50" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Leche Flan">Leche Flan – ₱50<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Halo-Halo" data-price="80" data-img="https://images.unsplash.com/photo-1601050690840-86b053b5b378"><img src="https://images.unsplash.com/photo-1601050690840-86b053b5b378" alt="Halo-Halo">Halo-Halo – ₱80<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Banana Cue" data-price="25" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="Banana Cue">Banana Cue – ₱25<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Turon" data-price="30" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="Turon">Turon – ₱30<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Buko Pie" data-price="60" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Buko Pie">Buko Pie – ₱60<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Mango Float" data-price="70" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Mango Float">Mango Float – ₱70<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Puto" data-price="20" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Puto">Puto – ₱20<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item desserts" data-name="Kutsinta" data-price="25" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Kutsinta">Kutsinta – ₱25<button onclick="addToCart(this)">Add</button></div>
-
-    <!-- === OTHERS (4) === -->
-    <div class="menu-item others" data-name="Siomai" data-price="50" data-img="https://images.unsplash.com/photo-1551892589-865f698694d0"><img src="https://images.unsplash.com/photo-1551892589-865f698694d0" alt="Siomai">Siomai – ₱50<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item others" data-name="Lumpia" data-price="45" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="Lumpia">Lumpia – ₱45<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item others" data-name="French Fries" data-price="40" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="French Fries">French Fries – ₱40<button onclick="addToCart(this)">Add</button></div>
-    <div class="menu-item others" data-name="Burger" data-price="80" data-img="https://images.unsplash.com/photo-1586201375761-83865001f61a"><img src="https://images.unsplash.com/photo-1586201375761-83865001f61a" alt="Burger">Burger – ₱80<button onclick="addToCart(this)">Add</button></div>
+  <!-- CART SIDEBAR -->
+  <div id="cart">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <h4>Total: ₱<span id="cartTotal">0</span></h4>
+    <button onclick="checkout()">Checkout</button>
   </div>
-</section>
+  <div id="cartToggle" onclick="toggleCart()">🛒 Cart</div>
 
-<!-- CART -->
-<div id="cart">
-  <h3>Your Cart</h3>
-  <div id="cartItems"></div>
-  <h4>Total: ₱<span id="cartTotal">0</span></h4>
-  <button onclick="checkout()">Checkout</button>
-</div>
-<div id="cartToggle" onclick="toggleCart()">🛒 Cart</div>
+  <!-- ORDER FORM -->
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <form onsubmit="submitOrder(event)">
+      <input type="text" placeholder="Name" required><br>
+      <input type="text" placeholder="Address" required><br>
+      <input type="tel" placeholder="Phone Number" required><br>
+      <button type="submit">Submit Order</button>
+    </form>
+  </section>
 
-<section id="order">
-  <h2>Place Your Order</h2>
-  <form onsubmit="submitOrder(event)">
-    <input type="text" placeholder="Name" required><br>
-    <input type="text" placeholder="Address" required><br>
-    <input type="tel" placeholder="Phone Number" required><br>
-    <button type="submit">Submit Order</button>
-  </form>
-</section>
+  <footer>&copy; 2026 Baeuan Silog House | Masarap at Sulit</footer>
 
-<footer>
-  &copy; 2026 Baeuan Silog House | Masarap at Sulit
-</footer>
+  <script>
+    /* DARK MODE */
+    function toggleDarkMode(){ document.body.classList.toggle('dark-mode'); }
 
-<script>
-/* === DARK MODE === */
-function toggleDarkMode() { document.body.classList.toggle('dark-mode'); }
+    /* SCROLL TO ORDER */
+    function scrollToOrder(){ document.getElementById('order').scrollIntoView({behavior:'smooth'}); }
 
-/* SCROLL TO ORDER */
-function scrollToOrder() { document.getElementById('order').scrollIntoView({behavior:'smooth'}); }
+    /* FILTER MENU */
+    function filterMenu(category,e){
+      document.querySelectorAll('.category-buttons button').forEach(btn=>btn.classList.remove('active'));
+      e.target.classList.add('active');
+      document.querySelectorAll('.menu-item').forEach(item=>{
+        if(category==='all') item.style.display='block';
+        else item.style.display=item.classList.contains(category)?'block':'none';
+      });
+    }
 
-/* FILTER MENU */
-function filterMenu(category,e){
-  document.querySelectorAll('.category-buttons button').forEach(btn => btn.classList.remove('active'));
-  e.target.classList.add('active');
-  document.querySelectorAll('.menu-item').forEach(item => {
-    item.style.display = (category==='all' || item.classList.contains(category)) ? 'flex' : 'none';
-  });
-}
+    /* CART FUNCTIONALITY */
+    let cart = [];
+    function addToCart(button){
+      const itemDiv = button.parentElement;
+      const name = itemDiv.dataset.name;
+      const price = parseFloat(itemDiv.dataset.price);
+      const img = itemDiv.dataset.img;
+      const existing = cart.find(i=>i.name===name);
+      if(existing) existing.qty += 1;
+      else cart.push({name, price, img, qty:1});
+      updateCart();
+    }
 
-/* CART FUNCTIONALITY */
-let cart=[];
-function addToCart(btn){
-  const item = btn.parentElement;
-  const name=item.dataset.name;
-  const price=parseFloat(item.dataset.price);
-  const img=item.dataset.img;
-  const existing = cart.find(i=>i.name===name);
-  if(existing) existing.qty+=1;
-  else cart.push({name,price,img,qty:1});
-  updateCart();
-}
-function updateCart(){
-  const cartItems=document.getElementById('cartItems');
-  cartItems.innerHTML='';
-  let total=0;
-  cart.forEach((item,index)=>{
-    total+=item.price*item.qty;
-    const div=document.createElement('div');
-    div.className='cart-item';
-    div.innerHTML=`
-      <img src="${item.img}" alt="${item.name}">
-      <div class="cart-item-details">${item.name} x ${item.qty} - ₱${item.price*item.qty}</div>
-      <button onclick="removeFromCart(${index})">X</button>
-    `;
-    cartItems.appendChild(div);
-  });
-  document.getElementById('cartTotal').innerText=total;
-}
-function removeFromCart(index){ cart.splice(index,1); updateCart(); }
-function toggleCart(){ 
-  const cartEl=document.getElementById('cart');
-  cartEl.style.right = cartEl.style.right==='0px' ? '-400px':'0px';
-}
-function checkout(){ 
-  if(cart.length===0){ alert('Cart is empty!'); return; }
-  alert('Order submitted! Total: ₱'+document.getElementById('cartTotal').innerText);
-  cart=[]; updateCart();
-}
-function submitOrder(e){ e.preventDefault(); alert('Order form submitted!'); e.target.reset(); }
-</script>
+    function updateCart(){
+      const cartItems = document.getElementById('cartItems');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item,i)=>{
+        total += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `<img src="${item.img}"><div class="cart-item-details">${item.name} x ${item.qty} - ₱${item.price*item.qty}</div><button onclick="removeFromCart(${i})">X</button>`;
+        cartItems.appendChild(div);
+      });
+      document.getElementById('cartTotal').innerText = total;
+    }
 
+    function removeFromCart(index){ cart.splice(index,1); updateCart(); }
+    function toggleCart(){
+      const cartEl = document.getElementById('cart');
+      cartEl.style.right = cartEl.style.right==='0px'?'-380px':'0px';
+    }
+    function checkout(){ alert('Order submitted! Total: ₱'+document.getElementById('cartTotal').innerText); }
+
+    /* ORDER FORM */
+    function submitOrder(e){ e.preventDefault(); alert('Order form submitted!'); e.target.reset(); }
+  </script>
 </body>
 </html>
