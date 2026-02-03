@@ -1,192 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baeuan Silog House</title>
-  <style>
-    /* === GENERAL STYLES === */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff8ee;
-      color: #333;
-      scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s;
-    }
-    body.dark-mode { background: #1c1c1c; color: #eee; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baeuan Silog House</title>
 
-    header {
-      background: #b22222;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+<style>
+  /* === GENERAL STYLES === */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff8ee;
+    color: #333;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+  }
+  body.dark-mode { background: #1c1c1c; color: #eee; }
 
-    nav a {
-      color: white;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav a:hover { color: #ffcc00; }
+  /* HEADER */
+  header {
+    background: #b22222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav a {
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  nav a:hover { color: #ffcc00; }
 
-    #darkModeToggle {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #b22222;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 20;
-    }
+  /* DARK MODE TOGGLE */
+  #darkModeToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #b22222;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 20;
+  }
 
-    /* HERO */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1604908177522-42952b1a7c10') center/cover no-repeat;
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero h2, .hero p { animation: fadeInDown 1s ease forwards; }
-    .hero button {
-      padding: 15px 30px;
-      background: #ffcc00;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: transform 0.3s;
-    }
-    .hero button:hover { transform: scale(1.1); }
+  /* HERO */
+  .hero {
+    background: url('https://images.unsplash.com/photo-1604908177522-42952b1a7c10') center/cover no-repeat;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h2, .hero p { animation: fadeInDown 1s ease forwards; }
+  .hero button {
+    padding: 15px 30px;
+    background: #ffcc00;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s;
+  }
+  .hero button:hover { transform: scale(1.1); }
 
-    /* Animations */
-    @keyframes fadeInDown {
-      0% { opacity:0; transform: translateY(-30px); }
-      100% { opacity:1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      0% { opacity:0; }
-      100% { opacity:1; }
-    }
+  /* Animations */
+  @keyframes fadeInDown {
+    0% { opacity:0; transform: translateY(-30px); }
+    100% { opacity:1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:1; }
+  }
 
-    /* SECTION STYLES */
-    section { padding: 60px 20px; text-align: center; }
-    h2 { margin-bottom: 30px; }
+  /* SECTIONS */
+  section { padding: 60px 20px; text-align: center; }
+  h2 { margin-bottom: 30px; }
 
-    /* MENU STYLES */
-    .category-buttons { margin-bottom: 30px; }
-    .category-buttons button {
-      margin: 0 5px;
-      padding: 10px 20px;
-      border: 2px solid #b22222;
-      background: white;
-      color: #b22222;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: all 0.3s;
-    }
-    .category-buttons button.active,
-    .category-buttons button:hover {
-      background: #b22222;
-      color: white;
-      transform: scale(1.05);
-    }
+  /* CATEGORY BUTTONS */
+  .category-buttons { margin-bottom: 30px; }
+  .category-buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: 2px solid #b22222;
+    background: white;
+    color: #b22222;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+  .category-buttons button.active,
+  .category-buttons button:hover {
+    background: #b22222;
+    color: white;
+    transform: scale(1.05);
+  }
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-      gap: 15px;
-    }
-    .menu-item {
-      background: #ffe4b5;
-      padding: 10px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      animation: fadeIn 0.8s forwards;
-      text-align: center;
-    }
-    .menu-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-    .menu-item img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 5px;
-    }
-    .menu-item button {
-      background: #b22222;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: transform 0.3s;
-      margin-top: 5px;
-    }
-    .menu-item button:hover { transform: scale(1.1); }
+  /* MENU GRID */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 15px;
+  }
+  .menu-item {
+    background: #ffe4b5;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+    text-align: center;
+  }
+  .menu-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .menu-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+  .menu-item button {
+    background: #b22222;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: 5px;
+  }
+  .menu-item button:hover { transform: scale(1.1); }
 
-    /* CART SIDEBAR */
-    #cart {
-      position: fixed;
-      top: 0;
-      right: -380px;
-      width: 380px;
-      height: 100%;
-      background: #fffaf3;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-      padding: 20px;
-      overflow-y: auto;
-      transition: right 0.4s, background 0.3s;
-      z-index: 20;
-    }
-    body.dark-mode #cart { background: #2a2a2a; color: #eee; }
-    #cart h3 { margin-top: 0; }
-    .cart-item { display: flex; align-items: center; margin-bottom: 12px; }
-    .cart-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px; }
-    .cart-item-details { flex: 1; text-align: left; }
-    .cart-item button { background: red; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer; }
-    #cartToggle {
-      position: fixed;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-      background: #b22222;
-      color: white;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 5px 0 0 5px;
-      z-index: 21;
-      font-weight: bold;
-    }
+  /* CART SIDEBAR */
+  #cart {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 380px;
+    height: 100%;
+    background: #fffaf3;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.4s, background 0.3s;
+    z-index: 20;
+  }
+  body.dark-mode #cart { background: #2a2a2a; color: #eee; }
+  #cart h3 { margin-top: 0; }
+  .cart-item { display: flex; align-items: center; margin-bottom: 12px; }
+  .cart-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px; }
+  .cart-item-details { flex: 1; text-align: left; }
+  .cart-item button { background: red; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer; }
+  #cartToggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #b22222;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    z-index: 21;
+    font-weight: bold;
+  }
 
-    /* FOOTER */
-    footer { background: #b22222; color: white; padding: 15px; text-align: center; }
-    body.dark-mode footer { background: #111; }
+  /* FOOTER */
+  footer { background: #b22222; color: white; padding: 15px; text-align: center; }
+  body.dark-mode footer { background: #111; }
 
-    /* FORM STYLES */
-    form input { padding: 10px; margin: 5px; width: 80%; border-radius: 5px; border: 1px solid #ccc; }
-    form button { padding: 10px 20px; margin-top: 10px; background: #b22222; color:white; border:none; cursor:pointer; border-radius:5px; }
-    form button:hover { transform: scale(1.05); }
+  /* FORM STYLES */
+  form input { padding: 10px; margin: 5px; width: 80%; border-radius: 5px; border: 1px solid #ccc; }
+  form button { padding: 10px 20px; margin-top: 10px; background: #b22222; color:white; border:none; cursor:pointer; border-radius:5px; }
+  form button:hover { transform: scale(1.05); }
 
-    /* RESPONSIVE */
-    @media(max-width:600px){
-      .menu-grid{ grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
-      header h1 { font-size: 22px; }
-      nav a { display: block; margin: 5px 0; }
-    }
-  </style>
+  /* RESPONSIVE */
+  @media(max-width:600px){
+    .menu-grid{ grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
+    header h1 { font-size: 22px; }
+    nav a { display: block; margin: 5px 0; }
+  }
+</style>
 </head>
+
 <body>
   <div id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
 
@@ -218,19 +222,202 @@
     </div>
 
     <div class="menu-grid" id="menuGrid">
-      <!-- SAMPLE PRODUCTS -->
-      <!-- SILOGS -->
-      <div class="menu-item silog" data-name="Tapsilog" data-price="95" data-img="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5">
-        <img src="https://images.unsplash.com/photo-1617196033385-7c1d9df7f8f5" alt="Tapsilog">
+
+      <!-- ====== SILOGS (12) ====== -->
+      <div class="menu-item silog" data-name="Tapsilog" data-price="95" data-img="https://source.unsplash.com/400x300/?beef,rice,egg">
+        <img src="https://source.unsplash.com/400x300/?beef,rice,egg" alt="Tapsilog">
         Tapsilog – ₱95
         <button onclick="addToCart(this)">Add</button>
       </div>
-      <div class="menu-item silog" data-name="Longsilog" data-price="85" data-img="https://images.unsplash.com/photo-1604908177522-42952b1a7c10">
-        <img src="https://images.unsplash.com/photo-1604908177522-42952b1a7c10" alt="Longsilog">
+
+      <div class="menu-item silog" data-name="Longsilog" data-price="85" data-img="https://source.unsplash.com/400x300/?sausage,rice,egg">
+        <img src="https://source.unsplash.com/400x300/?sausage,rice,egg" alt="Longsilog">
         Longsilog – ₱85
         <button onclick="addToCart(this)">Add</button>
       </div>
-      <!-- Add 28+ more products similarly with online image URLs -->
+
+      <div class="menu-item silog" data-name="Tocilog" data-price="90" data-img="https://source.unsplash.com/400x300/?bacon,rice,egg">
+        <img src="https://source.unsplash.com/400x300/?bacon,rice,egg" alt="Tocilog">
+        Tocilog – ₱90
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Bangsilog" data-price="100" data-img="https://source.unsplash.com/400x300/?fried-fish,rice">
+        <img src="https://source.unsplash.com/400x300/?fried-fish,rice" alt="Bangsilog">
+        Bangsilog – ₱100
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Chicksilog" data-price="95" data-img="https://source.unsplash.com/400x300/?fried-chicken,rice">
+        <img src="https://source.unsplash.com/400x300/?fried-chicken,rice" alt="Chicksilog">
+        Chicksilog – ₱95
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Bacsilog" data-price="90" data-img="https://source.unsplash.com/400x300/?bacon,egg">
+        <img src="https://source.unsplash.com/400x300/?bacon,egg" alt="Bacsilog">
+        Bacsilog – ₱90
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Hotsilog" data-price="80" data-img="https://source.unsplash.com/400x300/?hotdog,rice">
+        <img src="https://source.unsplash.com/400x300/?hotdog,rice" alt="Hotsilog">
+        Hotsilog – ₱80
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Cornsilog" data-price="85" data-img="https://source.unsplash.com/400x300/?corned-beef,rice">
+        <img src="https://source.unsplash.com/400x300/?corned-beef,rice" alt="Cornsilog">
+        Cornsilog – ₱85
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Spamsilog" data-price="95" data-img="https://source.unsplash.com/400x300/?spam,egg,rice">
+        <img src="https://source.unsplash.com/400x300/?spam,egg,rice" alt="Spamsilog">
+        Spamsilog – ₱95
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Daingsilog" data-price="105" data-img="https://source.unsplash.com/400x300/?dried-fish,rice">
+        <img src="https://source.unsplash.com/400x300/?dried-fish,rice" alt="Daingsilog">
+        Daingsilog – ₱105
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="Sardinesilog" data-price="80" data-img="https://source.unsplash.com/400x300/?sardines,rice">
+        <img src="https://source.unsplash.com/400x300/?sardines,rice" alt="Sardinesilog">
+        Sardinesilog – ₱80
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item silog" data-name="TunaSilog" data-price="110" data-img="https://source.unsplash.com/400x300/?tuna,rice">
+        <img src="https://source.unsplash.com/400x300/?tuna,rice" alt="TunaSilog">
+        TunaSilog – ₱110
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <!-- ====== DRINKS (10) ====== -->
+      <div class="menu-item drinks" data-name="Coke" data-price="30" data-img="https://source.unsplash.com/400x300/?cola">
+        <img src="https://source.unsplash.com/400x300/?cola" alt="Coke">
+        Coke – ₱30
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Sprite" data-price="30" data-img="https://source.unsplash.com/400x300/?lemon-soda">
+        <img src="https://source.unsplash.com/400x300/?lemon-soda" alt="Sprite">
+        Sprite – ₱30
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Iced Tea" data-price="25" data-img="https://source.unsplash.com/400x300/?iced-tea">
+        <img src="https://source.unsplash.com/400x300/?iced-tea" alt="Iced Tea">
+        Iced Tea – ₱25
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Calamansi Juice" data-price="35" data-img="https://source.unsplash.com/400x300/?citrus-juice">
+        <img src="https://source.unsplash.com/400x300/?citrus-juice" alt="Calamansi Juice">
+        Calamansi Juice – ₱35
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Coffee" data-price="40" data-img="https://source.unsplash.com/400x300/?coffee">
+        <img src="https://source.unsplash.com/400x300/?coffee" alt="Coffee">
+        Coffee – ₱40
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Hot Chocolate" data-price="45" data-img="https://source.unsplash.com/400x300/?hot-chocolate">
+        <img src="https://source.unsplash.com/400x300/?hot-chocolate" alt="Hot Chocolate">
+        Hot Chocolate – ₱45
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Bottled Water" data-price="20" data-img="https://source.unsplash.com/400x300/?bottle-water">
+        <img src="https://source.unsplash.com/400x300/?bottle-water" alt="Bottled Water">
+        Bottled Water – ₱20
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Sago't Gulaman" data-price="50" data-img="https://source.unsplash.com/400x300/?sago,gulaman">
+        <img src="https://source.unsplash.com/400x300/?sago,gulaman" alt="Sago't Gulaman">
+        Sago't Gulaman – ₱50
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Mango Shake" data-price="70" data-img="https://source.unsplash.com/400x300/?mango-shake">
+        <img src="https://source.unsplash.com/400x300/?mango-shake" alt="Mango Shake">
+        Mango Shake – ₱70
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item drinks" data-name="Soda Float" data-price="65" data-img="https://source.unsplash.com/400x300/?soda-float">
+        <img src="https://source.unsplash.com/400x300/?soda-float" alt="Soda Float">
+        Soda Float – ₱65
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <!-- ====== DESSERTS (10) ====== -->
+      <div class="menu-item desserts" data-name="Halo-Halo" data-price="80" data-img="https://source.unsplash.com/400x300/?halo-halo">
+        <img src="https://source.unsplash.com/400x300/?halo-halo" alt="Halo-Halo">
+        Halo-Halo – ₱80
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Leche Flan" data-price="50" data-img="https://source.unsplash.com/400x300/?flan">
+        <img src="https://source.unsplash.com/400x300/?flan" alt="Leche Flan">
+        Leche Flan – ₱50
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Bibingka" data-price="60" data-img="https://source.unsplash.com/400x300/?cake">
+        <img src="https://source.unsplash.com/400x300/?cake" alt="Bibingka">
+        Bibingka – ₱60
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Turon" data-price="40" data-img="https://source.unsplash.com/400x300/?banana-dessert">
+        <img src="https://source.unsplash.com/400x300/?banana-dessert" alt="Turon">
+        Turon – ₱40
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Ice Cream" data-price="50" data-img="https://source.unsplash.com/400x300/?ice-cream">
+        <img src="https://source.unsplash.com/400x300/?ice-cream" alt="Ice Cream">
+        Ice Cream – ₱50
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Maja Blanca" data-price="55" data-img="https://source.unsplash.com/400x300/?maja-blanca">
+        <img src="https://source.unsplash.com/400x300/?maja-blanca" alt="Maja Blanca">
+        Maja Blanca – ₱55
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Puto" data-price="30" data-img="https://source.unsplash.com/400x300/?puto">
+        <img src="https://source.unsplash.com/400x300/?puto" alt="Puto">
+        Puto – ₱30
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Kutsinta" data-price="25" data-img="https://source.unsplash.com/400x300/?kutsinta">
+        <img src="https://source.unsplash.com/400x300/?kutsinta" alt="Kutsinta">
+        Kutsinta – ₱25
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Buko Pie" data-price="70" data-img="https://source.unsplash.com/400x300/?buko-pie">
+        <img src="https://source.unsplash.com/400x300/?buko-pie" alt="Buko Pie">
+        Buko Pie – ₱70
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
+      <div class="menu-item desserts" data-name="Mango Float" data-price="70" data-img="https://source.unsplash.com/400x300/?mango-float">
+        <img src="https://source.unsplash.com/400x300/?mango-float" alt="Mango Float">
+        Mango Float – ₱70
+        <button onclick="addToCart(this)">Add</button>
+      </div>
+
     </div>
   </section>
 
@@ -294,7 +481,11 @@
         total += item.price * item.qty;
         const div = document.createElement('div');
         div.className = 'cart-item';
-        div.innerHTML = `<img src="${item.img}"><div class="cart-item-details">${item.name} x ${item.qty} - ₱${item.price*item.qty}</div><button onclick="removeFromCart(${i})">X</button>`;
+        div.innerHTML = `
+          <img src="${item.img}">
+          <div class="cart-item-details">${item.name} x ${item.qty} - ₱${item.price*item.qty}</div>
+          <button onclick="removeFromCart(${i})">X</button>
+        `;
         cartItems.appendChild(div);
       });
       document.getElementById('cartTotal').innerText = total;
